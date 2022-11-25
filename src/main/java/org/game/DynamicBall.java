@@ -11,7 +11,15 @@ public class DynamicBall extends Main {
   PImage img, endBtn, start, end;
   private boolean isMainScreen = false;
   //game start page
+  int numBalls = 1;
+  float gravity = 0.5f;
+  /* energy lost to other balls */
+  float friction = -0.5f;
 
+  /* error around edge of ball */
+  float spring = 0.05f;
+  DynamicBall a;
+  Balls[] balls = new Balls[numBalls];
   public void setup() {
     surface.setTitle("Dynamic Ball game");
     img = loadImage("/src/main/java/org/game/data/intro.jpg");
@@ -20,6 +28,12 @@ public class DynamicBall extends Main {
     end = loadImage("/src/main/java/org/game/data/exit.png");
     Music introMusic = new Music("intromusic.mp3", true);
     introMusic.start();
+
+    for (int i = 0; i < numBalls; i++) {
+      balls[i] = new Balls((float)300,(float)300 ,300,i,balls,this);}
+  }
+  public void drawCircle(float x, float y, float diameter) {
+    ellipse(x, y, diameter, diameter);
   }
   public void draw() {
     //background(10);
@@ -28,7 +42,15 @@ public class DynamicBall extends Main {
     if (isMainScreen){
       img = loadImage("/src/main/java/org/game/data/level1.jpg");
       image(img, 0, 0);
+      for (Balls ball : balls) {
 
+        //ball.collide();
+        ball.move();
+        noStroke();
+        fill(126,133,17);
+        drawCircle(ball.getXpos(), ball.getYpos(), ball.getDiameter());
+
+      }
 
 
 
@@ -59,10 +81,10 @@ public class DynamicBall extends Main {
     }
   }
   public void mouseDragged(){
-     //int x = .
-    //int y = windowY;
+     //int x =  a.displayWidth;
+     //int y =  a.displayHeight;
     //windowMove(mouseX,mouseY);
-    //surface.setLocation(x - mouseX, y-mouseY);
+    // surface.setLocation(x - mouseX, y-mouseY);
   }
 
   public void settings() {

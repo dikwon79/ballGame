@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="298aa118-a448-499c-9614-8cc87803ec7c" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/game/Music.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/game/data/endBtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/game/data/exit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/game/data/level1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/game/data/start.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/game/music/intromusic.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/Balls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/Balls.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/game/DynamicBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/DynamicBall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/Playergame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/data/intro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/data/intro.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/level2_workspace/2522/ballgame/src/main/java/org/game/data",
+    "last_opened_file_path": "C:/Users/dikwo/Desktop/ballGame",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.25862068"

@@ -2,15 +2,30 @@ package org.game;
 
 import processing.core.PVector;
 
+import java.awt.*;
+
 public class Playergame extends AbstractCharacter{
 
-  public Playergame(PVector position, PVector direction) {
-    super(position, direction);
+  Color color;
+  private static Playergame playerCharacter;
+  PVector position;
+  public Playergame(PVector position, PVector direction, DynamicBall window) {
+
+    super(position, direction, window);
+    this.color =new Color(240,10,10);
+    this.position= new PVector(window.width/2, window.height);
+
   }
 
+  public static Playergame getInstance(PVector position, PVector direction, DynamicBall window) {
+    if (playerCharacter == null) {
+      playerCharacter = new Playergame(position, direction, window);
+    }
+    return playerCharacter;
+  }
   @Override
   public PVector getPosition() {
-    return null;
+    return this.position;
   }
 
   @Override
@@ -30,7 +45,12 @@ public class Playergame extends AbstractCharacter{
   }
 
   @Override
-  public void draw() {
+  public void draw(DynamicBall window) {
+    window.fill(color.getRed(), color.getGreen(), color.getGreen());
+    window.rect(playerCharacter.getPosition().x,
+        window.height-150,
+        100,
+        150);
 
   }
 
@@ -43,4 +63,5 @@ public class Playergame extends AbstractCharacter{
   public void attack(){
 
   }
+
 }

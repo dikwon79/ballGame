@@ -9,6 +9,8 @@ public abstract class AbstractCharacter implements Idrawable, Icollidable  {
   protected PVector direction;
   protected Date lastCollide;
 
+  protected DynamicBall window;
+
   // multiplier for character speed
   protected float speed = 1f;
   // width of the character
@@ -16,10 +18,15 @@ public abstract class AbstractCharacter implements Idrawable, Icollidable  {
   // height of the character
   protected float height = 10f;
 
-  public AbstractCharacter(PVector position, PVector direction) {
+  public void setPosition(PVector position) {
+    this.position = position;
+  }
+
+  public AbstractCharacter(PVector position, PVector direction, DynamicBall window) {
     this.position = position;
     this.direction = direction;
     this.lastCollide = new Date();
+    this.window = window;
   }
 
   public boolean collided(Icollidable other) {

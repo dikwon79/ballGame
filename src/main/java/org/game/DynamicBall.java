@@ -1,14 +1,18 @@
 package org.game;
 
 
+import javazoom.jl.player.Player;
 import processing.core.PApplet;
 import processing.core.PImage;
+import processing.core.PVector;
 
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class DynamicBall extends Main {
 
   PImage img, endBtn, start, end;
+  private ArrayList<Idrawable> drawables = new ArrayList<Idrawable>();
   private boolean isMainScreen = false;
   //game start page
   int numBalls = 1;
@@ -20,6 +24,8 @@ public class DynamicBall extends Main {
   float spring = 0.05f;
   DynamicBall a;
   Balls[] balls = new Balls[numBalls];
+
+  private Playergame player;
   public void setup() {
     surface.setTitle("Dynamic Ball game");
     img = loadImage("/src/main/java/org/game/data/intro.jpg");
@@ -31,9 +37,37 @@ public class DynamicBall extends Main {
 
     for (int i = 0; i < numBalls; i++) {
       balls[i] = new Balls((float)300,(float)300 ,300,i,balls,this);}
+
+    // Initialize player
+    PVector playerDirection = new PVector(1, 1).normalize();
+    PVector playerPosition = new PVector(width / 2f, height / 2f);
+    // Singleton player
+    Playergame player = Playergame.getInstance(playerPosition, playerDirection, this);
+    addPlayer(player);
+
+
+
+  }
+  public void keyPressed(){
+    switch(keyCode){
+      case RIGHT:
+
+        player.setPosition(player.getPosition().add(new PVector(8,0)));
+        break;
+      case LEFT:
+        player.setPosition(player.getPosition().add(new PVector(-8,0)));
+
+    }
+
   }
   public void drawCircle(float x, float y, float diameter) {
     ellipse(x, y, diameter, diameter);
+  }
+
+  public void addPlayer(Playergame player) {
+    this.player = player;
+    this.drawables.add(player);
+
   }
   public void draw() {
     //background(10);
@@ -51,7 +85,9 @@ public class DynamicBall extends Main {
         drawCircle(ball.getXpos(), ball.getYpos(), ball.getDiameter());
 
       }
-
+      for (Idrawable d : drawables) {
+        d.draw(this);
+      }
 
 
     }else {
@@ -81,10 +117,11 @@ public class DynamicBall extends Main {
     }
   }
   public void mouseDragged(){
-     //int x =  a.displayWidth;
-     //int y =  a.displayHeight;
-    //windowMove(mouseX,mouseY);
-    // surface.setLocation(x - mouseX, y-mouseY);
+     /** int x =
+     int y = a.windowY;
+     // surface.setLocation(100, 100);
+     surface.setLocation(x - mouseX, y-mouseY);
+   // surface.setLocation(mouseX, mouseY); */
   }
 
   public void settings() {

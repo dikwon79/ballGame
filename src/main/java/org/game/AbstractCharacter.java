@@ -18,6 +18,10 @@ public abstract class AbstractCharacter implements Idrawable, Icollidable  {
   // height of the character
   protected float height = 10f;
 
+  public AbstractCharacter() {
+
+  }
+
   public void setPosition(PVector position) {
     this.position = position;
   }

@@ -1,12 +1,10 @@
 package org.game;
 
 
-import javazoom.jl.player.Player;
-import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PVector;
 
-import java.awt.event.MouseEvent;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class DynamicBall extends Main {
@@ -16,6 +14,7 @@ public class DynamicBall extends Main {
   private boolean isMainScreen = false;
   //game start page
   int numBalls = 1;
+  int num = -1;//weapon
   float gravity = 0.5f;
   /* energy lost to other balls */
   float friction = -0.5f;
@@ -24,6 +23,10 @@ public class DynamicBall extends Main {
   float spring = 0.05f;
   DynamicBall a;
   Balls[] balls = new Balls[numBalls];
+
+  private int currentNumberWeapon = 0;
+  private ArrayList<Weapon> addWeapon = new ArrayList<Weapon>();
+  private int maxWeapon = 500;
 
   private Playergame player;
   public void setup() {
@@ -45,6 +48,8 @@ public class DynamicBall extends Main {
     Playergame player = Playergame.getInstance(playerPosition, playerDirection, this);
     addPlayer(player);
 
+    //weapon
+
 
 
   }
@@ -52,12 +57,29 @@ public class DynamicBall extends Main {
     switch(keyCode){
       case RIGHT:
 
-        player.setPosition(player.getPosition().add(new PVector(8,0)));
+        player.setPosition(player.getPosition().add(new PVector(10,0)));
         break;
       case LEFT:
-        player.setPosition(player.getPosition().add(new PVector(-8,0)));
+        player.setPosition(player.getPosition().add(new PVector(-10,0)));
+        break;
+      case 32:
+
+        Weapon weapon = new Weapon(player.getPosition().x +50,height-150,4,1,100,0 );
+        addWeapon(weapon);
+        break;
+      default:
+
+        break;
+
+
 
     }
+
+
+  }
+  public void addWeapon(Weapon weapon) {
+
+    addWeapon.add(weapon);
 
   }
   public void drawCircle(float x, float y, float diameter) {
@@ -69,6 +91,7 @@ public class DynamicBall extends Main {
     this.drawables.add(player);
 
   }
+
   public void draw() {
     //background(10);
 
@@ -89,6 +112,17 @@ public class DynamicBall extends Main {
         d.draw(this);
       }
 
+      for (Weapon f : addWeapon) {
+
+        f.move();
+        noStroke();
+        fill(127,255,0);
+        rect(f.getX(),
+            f.getY(),
+            10,
+            1900);
+
+      }
 
     }else {
       image(img, 0, 0);
@@ -115,6 +149,7 @@ public class DynamicBall extends Main {
       System.exit(0);
 
     }
+
   }
   public void mouseDragged(){
      /** int x =

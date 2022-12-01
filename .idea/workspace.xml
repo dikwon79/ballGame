@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="298aa118-a448-499c-9614-8cc87803ec7c" name="Changes" comment="ball bouncing : enermy">
+    <list default="true" id="298aa118-a448-499c-9614-8cc87803ec7c" name="Changes" comment="player">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/game/AbstractCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/AbstractCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/Balls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/Balls.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/game/DynamicBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/DynamicBall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/Idrawable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/Idrawable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/Playergame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/Playergame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669378958399</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="player">
+      <created>1669673129308</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669673129308</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +170,23 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="ball bouncing : enermy" />
-    <option name="LAST_COMMIT_MESSAGE" value="ball bouncing : enermy" />
+    <MESSAGE value="player" />
+    <option name="LAST_COMMIT_MESSAGE" value="player" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/game/Weapon.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/game/Playergame.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -11,8 +11,11 @@ public class Balls{
   private final float diameter;
   private float vx = 3;
   private float vy = -9;
-
+  private int[] speedarray = {-18, -15, -12, -9};
   private int ballSpeed = -20;
+
+  //first speed
+  private int initSpeed;
   private final int id;
   private Balls[] others;
   private DynamicBall scene;
@@ -27,6 +30,7 @@ public class Balls{
     this.id = idin;
     this.others = oin;
     this.scene = scene;
+    this.initSpeed = speedarray[0];
 
   }
   public float getXpos() {

@@ -41,6 +41,8 @@ public class DynamicBall extends Main {
 
 
   public void setup() {
+
+    score = 0;
     surface.setTitle("Dynamic Ball game");
     img = loadImage("/src/main/java/org/game/data/intro.jpg");
     endBtn = loadImage("/src/main/java/org/game/data/endBtn.png");
@@ -251,7 +253,7 @@ public class DynamicBall extends Main {
     drawables.clear();
     collidables.clear();
     isMainScreen = 0;
-
+    score = 0;
     for (int i = 0; i < numBalls; i++) {
 
       PVector Position = new PVector(300, 300);
@@ -322,6 +324,7 @@ public class DynamicBall extends Main {
     {
       loop();
       isMainScreen = 1;
+      numBalls = 1;
 
     }
     if ((mouseX >= width/4+400 && mouseX <= width/4+700) && (mouseY >=500 && mouseY <= 600))

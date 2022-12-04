@@ -31,7 +31,7 @@ public class DbConnection extends DynamicBall{
 
     //StringBuilder sb = new StringBuilder();
     //String sql = sb.append("select * from "+table+ "order by score desc").append(";").toString();
-    String SQL = "SELECT * from score where 1 order by score asc limit 6";
+    String SQL = "SELECT * from score where 1 order by score desc limit 6";
 
     try {
       rs = st.executeQuery(SQL);

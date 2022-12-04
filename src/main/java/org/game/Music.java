@@ -17,8 +17,8 @@ public class Music extends Thread{
   public Music(String name, boolean isLoop) {
     try {
         this.isLoop = isLoop;
-        String name2 = "/src/main/java/org/game/music/"+name;
-        file = new File("D:\\level2_workspace\\2522\\ballgame\\src\\main\\java\\org\\game\\music\\"+name);
+        //String name2 = "\\src\\main\\java\\org\\game\\music\\"+name;
+        file = new File("..\\ballGame\\src\\main\\java\\org\\game\\music\\"+name);
         fis = new FileInputStream(file);
         bis = new BufferedInputStream(fis);
         player = new Player(bis);

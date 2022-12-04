@@ -7,7 +7,7 @@ import static processing.core.PApplet.sin;
 
 public class Balls extends AbstractCharacter{
 
-  private float vx = 5;
+  private float vx = 8;
   private float vy = -9;
   private int[] speedarray = {-18, -15, -12, -9};
   private int ballSpeed = -20;

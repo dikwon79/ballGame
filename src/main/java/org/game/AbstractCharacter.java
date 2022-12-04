@@ -6,40 +6,54 @@ import java.util.Date;
 
 public abstract class AbstractCharacter implements Idrawable, Icollidable  {
   protected PVector position;
-  protected PVector direction;
-  protected Date lastCollide;
 
-  protected DynamicBall window;
-
-  // multiplier for character speed
-  protected float speed = 1f;
-  // width of the character
   protected float width = 10f;
   // height of the character
   protected float height = 10f;
+  protected Date lastCollide;
+  protected DynamicBall window;
 
-  public AbstractCharacter() {
 
+  public AbstractCharacter(PVector position, float width, float height, DynamicBall window) {
+    this.position = position;
+    this.width = width;
+    this.height = height;
+    this.lastCollide = new Date();
+    this.window = window;
   }
 
   public void setPosition(PVector position) {
     this.position = position;
   }
 
-  public AbstractCharacter(PVector position, PVector direction, DynamicBall window) {
-    this.position = position;
-    this.direction = direction;
-    this.lastCollide = new Date();
-    this.window = window;
+  @Override
+  public BoundingBox getBoundingBox() {
+    return new BoundingBox(this.getPosition(), this.getWidth(), this.getHeight());
   }
+  @Override
+  public float getWidth() {
+    return this.width;
+  }
+  @Override
+  public PVector getPosition() {
+    return this.position;
+  }
+  @Override
+  public float getHeight() {
+    return this.height;
+  }
+
+
 
   public boolean collided(Icollidable other) {
-    return true;
-  }
-  public boolean outOfBounds() {
-    return true;
-  }
-  public void bounce(float a) {
+    if (this.equals(other)) {
+      return false;
+    }
+    BoundingBox otherBounds = other.getBoundingBox();
+    boolean collides = getBoundingBox().collides(otherBounds);
 
+    return collides;
   }
+  public abstract void move();
+
 }

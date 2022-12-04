@@ -1,25 +1,33 @@
 package org.game;
 
+import processing.core.PImage;
 import processing.core.PVector;
 
 import java.awt.*;
 
+import static processing.awt.ShimAWT.loadImage;
+
 public class Playergame extends AbstractCharacter{
 
+  PImage playerimg;
   Color color;
+  float width;
+  float height;
   private static Playergame playerCharacter;
   PVector position;
-  public Playergame(PVector position, PVector direction, DynamicBall window) {
+  public Playergame(PVector position, float width, float height, DynamicBall window) {
 
-    super(position, direction, window);
+    super(position, width, height, window);
     this.color =new Color(240,10,10);
     this.position= new PVector(window.width/2, window.height);
+    this.width = 100;
+    this.height = 150;
 
   }
 
-  public static Playergame getInstance(PVector position, PVector direction, DynamicBall window) {
+  public static Playergame getInstance(PVector position, float width, float height, DynamicBall window) {
     if (playerCharacter == null) {
-      playerCharacter = new Playergame(position, direction, window);
+      playerCharacter = new Playergame(position, width, height, window);
     }
     return playerCharacter;
   }
@@ -30,38 +38,43 @@ public class Playergame extends AbstractCharacter{
 
   @Override
   public float getWidth() {
-    return 0;
+    return width;
   }
 
   @Override
   public float getHeight() {
-    return 0;
+    return height;
+  }
+
+  @Override
+  public void move() {
+
   }
 
   // colliding with balls makes game over.
   @Override
   public void collideBehaviour(Icollidable c) {
 
+    if (c instanceof Balls) {
+      System.out.println("player was dead");
+    }
+
+
   }
 
   @Override
   public void draw(DynamicBall window) {
     window.fill(color.getRed(), color.getGreen(), color.getGreen());
-    window.rect(playerCharacter.getPosition().x,
-        window.height-150,
-        100,
-        150);
+
+    playerimg = window.loadImage("/src/main/java/org/game/data/player.png");
+    window.image(playerimg,playerCharacter.getPosition().x, window.height-150,width,height);
+    //window.rect(playerCharacter.getPosition().x,
+     //   window.height-150,
+      //  width,
+      //  height);
 
   }
 
-  // choose the one of 3kinds weapons
-  public void weponChoose(){
 
-  }
-
-  // attack balls
-  public void attack(){
-
-  }
 
 }

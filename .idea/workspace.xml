@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="298aa118-a448-499c-9614-8cc87803ec7c" name="Changes" comment="player">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/AbstractCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/AbstractCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/Balls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/Balls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/DynamicBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/DynamicBall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/game/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/game/Weapon.java" afterDir="false" />
-    </list>
+    <list default="true" id="298aa118-a448-499c-9614-8cc87803ec7c" name="Changes" comment="final" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,10 +24,18 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2HSwZw5ak489cJiwhwg5Qdzwo3g" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -66,6 +68,10 @@
       <recent name="D:\level2_workspace\2522\ballgame\src\main\java" />
       <recent name="D:\level2_workspace\2522\ballgame\src" />
       <recent name="D:\level2_workspace\2522\ballgame\src\main\images" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.game" />
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -152,7 +158,28 @@
       <option name="project" value="LOCAL" />
       <updated>1669673129308</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="bullet">
+      <created>1669926295255</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669926295255</updated>
+    </task>
+    <task id="LOCAL-00005" summary="bullet">
+      <created>1669928872209</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669928872209</updated>
+    </task>
+    <task id="LOCAL-00006" summary="final">
+      <created>1670146332087</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670146332087</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,22 +198,23 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="ball bouncing : enermy" />
     <MESSAGE value="player" />
-    <option name="LAST_COMMIT_MESSAGE" value="player" />
+    <MESSAGE value="bullet" />
+    <MESSAGE value="final" />
+    <option name="LAST_COMMIT_MESSAGE" value="final" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/game/Weapon.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/game/Playergame.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="((Balls)other).window&#10;&#10;&#10;" language="JAVA" custom="org.game.Balls" />
+        <watch expression="addBallsQue.get(0)" language="JAVA" />
+        <watch expression="c" />
+        <watch expression="this" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ballgame$Main.ic" NAME="Main Coverage Results" MODIFIED="1669991401586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.game.*</FILTER>
+    </SUITE>
   </component>
 </project>

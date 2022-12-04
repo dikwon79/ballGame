@@ -12,5 +12,7 @@ public interface Icollidable {
 
     float getHeight();
 
+    BoundingBox getBoundingBox();
+
     void collideBehaviour(Icollidable c);
 }

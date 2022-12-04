@@ -4,75 +4,75 @@ import processing.core.PVector;
 
 import java.awt.*;
 
-public class Weapon {
+public class Weapon extends AbstractCharacter{
   private int type;
   private int speed =300;
 
   private  Weapon[] weapon;
 
-  private float x;
-
-  private float y;
   private int size;
-  private int width;
+  private float width;
+  private float height;
+
   Color color;
 
 
-  public Weapon(PVector position, PVector direction, DynamicBall window){
-    super();
-  }
-
-  public Weapon(float x, float y, int size, int width, int speed, int type){
-
-    this.x = x;
-    this.y = y;
-    this.size = size;
+  public Weapon(PVector position,float width, float height , DynamicBall window){
+    super(position, width , height, window);
     this.width = width;
-    this.speed = speed;
-    this.type = type;
-
-  }
-
-  public void setX(float x) {
-    this.x = x;
-  }
-
-  public void setY(float y) {
-    this.y = y;
-  }
-
-  public int getType() {
-    return type;
-  }
-
-  public int getSpeed() {
-    return speed;
-  }
-
-  public float getX() {
-    return x;
-  }
-
-  public float getY() {
-    return y;
+    this.height = height;
+    this.position = position;
+    this.window = window;
+    this.color =new Color(50,80,10);
   }
 
 
-
-
-
-
-  // weapon type chooose
-  public int weaponChange(int type){
-
-    //1. gun
-    //2. arrow
-    //3. double gun
-    return type;
-  }
   public void move() {
-    setY(getY()-speed);
+    PVector Position = new PVector(position.x, position.y-speed);
+    setPosition(Position);
 
+  }
+  @Override
+  public void setPosition(PVector position) {
+    this.position = position;
+  }
+  @Override
+  public void draw(DynamicBall window) {
+    move();
+    window.noStroke();
+    window.fill(127,255,0);
+    window.rect(getPosition().x+50,getPosition().y-150,10,500);
+    if(getPosition().y-150<0){
+      window.removeObj(this);
+    }
+  }
+
+  @Override
+  public boolean collided(Icollidable c) {
+    return false;
+  }
+
+  @Override
+  public PVector getPosition() {
+    return this.position;
+  }
+
+  @Override
+  public float getWidth() {
+    return this.width;
+  }
+
+  @Override
+  public float getHeight() {
+    return this.height;
+  }
+
+  @Override
+  public void collideBehaviour(Icollidable c) {
+
+    if (c instanceof Balls) {
+      System.out.println("player was dead");
+    }
   }
 
 

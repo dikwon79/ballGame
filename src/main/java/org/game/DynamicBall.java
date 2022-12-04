@@ -39,6 +39,7 @@ public class DynamicBall extends Main {
 
 
 
+
   public void setup() {
     surface.setTitle("Dynamic Ball game");
     img = loadImage("/src/main/java/org/game/data/intro.jpg");
@@ -245,6 +246,7 @@ public class DynamicBall extends Main {
   public void reset(){
     gameOver("score",score);
     noLoop();
+
     addBallsQue.clear();
     drawables.clear();
     collidables.clear();
@@ -273,11 +275,31 @@ public class DynamicBall extends Main {
     fill(237, 28, 36);
     textSize(170);
 
-    text("Game over", width/3, height/2 - 70);
+    text("Game over", width/3, height/3 - 70);
     textSize(100);
-    text(text + " "+score,width/3, height/2+20);
+    text(text + " "+score,width/3, height/3+20);
 
-   // setup();
+    fill(255, 255, 255);
+    textSize(50);
+    //database connection
+    //System.out.println("connection: " + connection.isAdmin("1","50"));
+    DbConnection connection = new DbConnection();
+    connection.selectAll(this);
+    connection.insert(String.valueOf(numBalls),String.valueOf(score));
+
+    strokeWeight(3);
+    stroke(255, 255, 0);
+    fill(255);
+
+    rect(width/4+400,300,300,100);
+    fill(0, 0, 0);
+    text("RESTART",width/4+430,380);
+    fill(255, 255, 255);
+    rect(width/4+400,500,300,100);
+    fill(0, 0, 0);
+    text("END",width/4+430,580);
+
+
 
 
   }
@@ -296,6 +318,22 @@ public class DynamicBall extends Main {
       System.exit(0);
 
     }
+    if ((mouseX >= width/4+400 && mouseX <= width/4+700 ) && (mouseY >=300 && mouseY <= 400))
+    {
+      loop();
+      isMainScreen = 1;
+
+    }
+    if ((mouseX >= width/4+400 && mouseX <= width/4+700) && (mouseY >=500 && mouseY <= 600))
+    {
+      System.exit(0);
+
+    }
+
+
+
+
+
 
   }
   public void mouseDragged(){

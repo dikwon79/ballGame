@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DbConnection {
+public class DbConnection extends DynamicBall{
 
   private Connection con;
   private Statement st;
@@ -27,23 +27,23 @@ public class DbConnection {
   }
 
   //all data search
-  public void selectAll() {
+  public void selectAll(DynamicBall window) {
 
-    StringBuilder sb = new StringBuilder();
-    String sql = sb.append("select * from "+table).append(";").toString();
-    String SQL = "SELECT * from score where 1";
+    //StringBuilder sb = new StringBuilder();
+    //String sql = sb.append("select * from "+table+ "order by score desc").append(";").toString();
+    String SQL = "SELECT * from score where 1 order by score asc limit 6";
 
     try {
       rs = st.executeQuery(SQL);
-      System.out.print("id");
-      System.out.print("\t");
-      System.out.print("score");
-      System.out.print("\n");
+
+      window.text("level" ,window.width/4, window.height/2);
+      window.text("score" ,window.width/4+200, window.height/2);
+      int i =1;
       while (rs.next()) {
-        System.out.print(rs.getInt("id"));
-        System.out.print("\t");
-        System.out.print(rs.getString("score"));
-        System.out.print("\n");
+
+        window.text(rs.getInt("id") ,window.width/4, window.height/2+50*i);
+        window.text(rs.getString("score") ,window.width/4+200, window.height/2+50*i);
+        i++;
       }
     } catch (Exception e) {
       System.out.println("database alldata search error : " + e.getMessage());

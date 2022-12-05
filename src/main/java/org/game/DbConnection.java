@@ -11,7 +11,7 @@ public class DbConnection extends DynamicBall{
   private Statement st;
   private ResultSet rs;
 
-  private String table = "score";
+  private final String table = "score";
 
   public DbConnection(){
     try{
@@ -81,6 +81,80 @@ public class DbConnection extends DynamicBall{
     }
     return false;
 
+
+  }
+  //delete
+  public void delete(int id) {
+
+    StringBuilder sb = new StringBuilder();
+    String sql = sb.append("delete from " + table + " where id = ")
+        .append(id)
+        .append(";")
+        .toString();
+
+    try {
+      st.executeUpdate(sql);
+
+    }catch (Exception e)
+    {
+      System.out.println("delete error : "+ e.getMessage());
+    }
+  }
+
+
+
+  // modification
+
+  public void update(int id, String name, int grade) {
+
+    StringBuilder sb = new StringBuilder();
+    String sql = sb.append("update " + table + " set")
+        .append(" name = ")
+        .append("'" + name + "',")
+        .append(" grade = ")
+        .append(grade)
+        .append(" where id = ")
+        .append(id)
+        .append(";").toString();
+
+    try {
+      st.executeUpdate(sql);
+
+    }catch (Exception e)
+    {
+      System.out.println("update error : "+ e.getMessage());
+    }
+
+  }
+
+  //searching
+  public void select(int id) {
+    StringBuilder sb = new StringBuilder();
+    String sql = sb.append("select * from " + table + " where")
+        .append(" id = ")
+        .append(id)
+        .append(";").toString();
+    try {
+      ResultSet rs = st.executeQuery(sql);
+
+      System.out.print("id");
+      System.out.print("\t");
+      System.out.print("name");
+      System.out.print("\t");
+      System.out.print("\n");
+
+      while(rs.next()){
+        System.out.print(rs.getInt("id"));
+        System.out.print("\t");
+        System.out.print(rs.getString("name"));
+        System.out.print("\t");
+        System.out.print("\n");
+      }
+
+    }catch (Exception e)
+    {
+      System.out.println("update error : "+ e.getMessage());
+    }
 
   }
 }
